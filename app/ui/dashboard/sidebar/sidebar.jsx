@@ -1,6 +1,6 @@
 import MenuLink from './menuLink/menuLink';
 import styles from './sidebar.module.css';
-import { MdDashboard ,MdSupervisedUserCircle,MdHail} from "react-icons/md";
+import { MdDashboard, MdSupervisedUserCircle, MdHail, MdLogout } from "react-icons/md";
 import Image from 'next/image';
 
 const menuItems = [
@@ -49,6 +49,10 @@ const Sidebar = () => {
                     </li>
                 ))}
             </ul>
+            <button className={styles.logout}>
+                <MdLogout />
+                Logout
+            </button>
         </div>
     )
 }
