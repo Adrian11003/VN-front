@@ -4,7 +4,8 @@ import { useState, useEffect } from 'react';
 import { getAlumnos, createAlumnos } from "@/app/api/alumnos";
 import { getDniTipos } from "@/app/api/dni";
 import { getApoderados } from '@/app/api/apoderados';
-import styles from "@/app/ui/dashboard/Alumnos/addAlumnos/addAlumnos.module.css"
+import styles from "@/app/ui/dashboard/Alumnos/addAlumnos/addAlumnos.module.css";
+import Swal from 'sweetalert2'
 
 const AddAlumnosPage = () => {
   const [alumnos, setAlumnos] = useState([]);
@@ -70,8 +71,14 @@ const AddAlumnosPage = () => {
       const response = await createAlumnos(formData);
 
       if (response) {
-        console.log('Alumno creado exitosamente');
-        // Aquí puedes redirigir a otra página o mostrar un mensaje de éxito
+        Swal.fire({
+          title: "Good job!",
+          text: "Alumno creado exitosamente",
+          icon: "success"
+        }).then(() => {
+          // Redireccionar al listado de alumnos
+          window.location.href = "/dashboard/Alumnos";
+        });
       }
     } catch (error) {
       console.error('Error al crear el alumno:', error);
