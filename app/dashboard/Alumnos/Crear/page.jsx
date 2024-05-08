@@ -72,7 +72,7 @@ const AddAlumnosPage = () => {
 
       if (response) {
         Swal.fire({
-          title: "Good job!",
+          title: "Creación Exitosa!",
           text: "Alumno creado exitosamente",
           icon: "success"
         }).then(() => {
@@ -93,9 +93,9 @@ const AddAlumnosPage = () => {
         <input type="text" placeholder="Apellidos" name="apellidos_alumno" value={formData.apellidos_alumno} onChange={handleChange} required />
         <input type="text" placeholder="Dirección" name="direccion_alumno" value={formData.direccion_alumno} onChange={handleChange} required />
         <input type="text" placeholder="Teléfono" name="telefono_alumno" value={formData.telefono_alumno} onChange={handleChange} required />
-        <input type="text" placeholder="Numero de Dni" name="numero_dni" value={formData.numero_dni} onChange={handleChange} required />
+        <input type="text" placeholder="Numero de Documento" name="numero_dni" value={formData.numero_dni} onChange={handleChange} required />
         <select name="dni_id" value={formData.dni_id} onChange={handleChange} required>
-          <option value="">Seleccione un tipo de DNI</option>
+          <option value="">Seleccione un tipo de Documento</option>
           {dniTipos.map((tipoDni) => (
             <option key={tipoDni.dni_id} value={tipoDni.dni_id}>
               {tipoDni.tipo_dni}

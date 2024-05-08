@@ -6,7 +6,8 @@ import Link from "next/link"
 import Image from "next/image"
 import Pagination from "@/app/ui/dashboard/pagination/pagination"
 import { useEffect, useState } from 'react';
-import { getAlumnos } from "@/app/api/alumnos"
+import { getAlumnos, deleteAlumno } from "@/app/api/alumnos"
+import Swal from 'sweetalert2'
 
 const AlumnosPag = () => {
     const [alumnos, setAlumnos] = useState([]);
@@ -23,6 +24,43 @@ const AlumnosPag = () => {
 
         fetchData();
     }, []);
+
+    const handleDelete = async (id) => {
+        // Mostrar el SweetAlert2 de confirmación
+        Swal.fire({
+          title: "¿Estás seguro?",
+          text: "¡No podrás revertir esto!",
+          icon: "warning",
+          showCancelButton: true,
+          confirmButtonColor: "#3085d6",
+          cancelButtonColor: "#d33",
+          confirmButtonText: "Sí, eliminarlo",
+        }).then(async (result) => {
+          if (result.isConfirmed) {
+            try {
+              // Eliminar el alumno si se confirma la acción
+              await deleteAlumno(id);
+              // Actualizar la lista de alumnos después de eliminar uno
+              const updatedAlumnos = alumnos.filter((alumno) => alumno.id !== id);
+              setAlumnos(updatedAlumnos);
+              // Mostrar SweetAlert2 de éxito
+              Swal.fire({
+                title: "¡Eliminado!",
+                text: "Tu alumno ha sido eliminado.",
+                icon: "success",
+              });
+            } catch (error) {
+              console.error("Error al eliminar el alumno:", error);
+              // Mostrar SweetAlert2 de error si ocurre algún problema
+              Swal.fire({
+                title: "Error",
+                text: "Hubo un problema al eliminar el alumno.",
+                icon: "error",
+              });
+            }
+          }
+        });
+      };
 
     return (
         <div className={styles.container}>
@@ -53,14 +91,14 @@ const AlumnosPag = () => {
                             <td>{alumno.direccion_alumno}</td>
                             <td>
                                 <div className={styles.buttons}>
-                                    <Link href={`/dashboard/Alumnos/${alumno.id}`}>
+                                    <Link href={`/dashboard/Alumnos/${alumno.alumno_id}`}>
                                         <button className={`${styles.button} ${styles.view}`}>
                                             Ver
                                         </button>
                                     </Link>
-                                    <button className={`${styles.button} ${styles.delete}`}>
-                                        Eliminar
-                                    </button>
+                                <button className={`${styles.button} ${styles.delete}`} onClick={() => handleDelete(alumno.alumno_id)}>
+                                    Eliminar
+                                </button>
                                 </div>
                             </td>
                         </tr>
