@@ -9,7 +9,7 @@ const AddAlumnosPage = () => {
         <input type="text" placeholder="Teléfono" name="Telefono" required />
         <input type="text" placeholder="Dirección" name="Direccion" />
         <input type="text" placeholder="Dni" name="Dni" />
-        <button type="submit">Crear</button>
+        <button type="submit" className="crear">Crear</button>
       </form>
     </div>
   );

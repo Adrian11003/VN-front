@@ -14,12 +14,12 @@
   .form input,
   .form textarea,
   .form select {
-    padding: 30px;
+    padding: 20px;
     background-color: var(--bg);
     color: var(--text);
     border: 2px solid #2e374a;
     border-radius: 5px;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
   }
   
   .form input, .form select {
@@ -31,7 +31,17 @@
   }
   
   .form button{
-    width: 100%;
+    width: 30%;
+    padding: 30px;
+    background-color: teal;
+    color: var(--text);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .form button.crear{
+    width: 30%;
     padding: 30px;
     background-color: teal;
     color: var(--text);

@@ -14,17 +14,17 @@ const menuItems = [
             },
             {
                 title: "Alumnos",
-                path: "dashboard/Alumnos",
+                path: "/dashboard/Alumnos",
                 icon: < MdSupervisedUserCircle />,
             },
             {
                 title: "Apoderados",
-                path: "dashboard/Apoderados",
+                path: "/dashboard/Apoderados",
                 icon: < MdHail />,
             },
             {
                 title: "Docentes",
-                path: "dashboard/Docentes",
+                path: "/dashboard/Docentes",
                 icon: < MdAutoStories />,
             },
 
