@@ -1,12 +1,12 @@
 import axios from 'axios';
 
 const api = axios.create({
-    baseURL: 'http://localhost:3000'
+    baseURL: 'https://api-vn-dola.onrender.com'
 })
 
 export const getAlumnos = async () => {
     try{
-        const response = await api.get('http://localhost:3000/alumnos');
+        const response = await api.get('https://api-vn-dola.onrender.com/alumnos');
         return response.data;
     } catch (error) {
         console.error('Error al ver alumnos');
@@ -16,7 +16,7 @@ export const getAlumnos = async () => {
 
 export const createAlumnos = async (alumnos) => {
     try{
-        const response = await api.post('http://localhost:3000/alumnos', alumnos)
+        const response = await api.post('https://api-vn-dola.onrender.com/alumnos', alumnos)
         return response.data
     } catch (error) {
         console.error('Error al crear alumnos')
@@ -25,7 +25,7 @@ export const createAlumnos = async (alumnos) => {
 
 export const getAlumnoById = async (alumnos_id) => {
     try {
-        const response = await api.get(`http://localhost:3000/alumnos/${alumnos_id}`);
+        const response = await api.get(`https://api-vn-dola.onrender.com/alumnos/${alumnos_id}`);
         return response.data;
     } catch (error) {
         console.error(`Error al obtener el alumno con ID ${alumnos_id}`, error);
@@ -35,7 +35,7 @@ export const getAlumnoById = async (alumnos_id) => {
 
 export const updateAlumno = async (alumnos_id, updatedAlumno) => {
     try {
-        const response = await api.put(`http://localhost:3000/alumnos/${alumnos_id}`, updatedAlumno);
+        const response = await api.put(`https://api-vn-dola.onrender.com/alumnos/${alumnos_id}`, updatedAlumno);
         return response.data;
     } catch (error) {
         console.error(`Error al actualizar el alumno con ID ${alumnos_id}`, error);
@@ -53,7 +53,7 @@ export const deleteAlumno = async (alumnos_id) => {
     }
 
     try {
-        const response = await api.delete(`http://localhost:3000/alumnos/${alumnos_id}`);
+        const response = await api.delete(`https://api-vn-dola.onrender.com/alumnos/${alumnos_id}`);
         return response.data;
     } catch (error) {
         console.error(`Error al eliminar el alumno con ID ${alumnos_id}`, error);

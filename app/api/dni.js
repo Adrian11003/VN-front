@@ -1,12 +1,12 @@
 import axios from 'axios';
 
 const api = axios.create({
-    baseURL: 'http://localhost:3000'
+    baseURL: 'https://api-vn-dola.onrender.com'
 })
 
 export const getDniTipos = async () => {
     try{
-        const response = await api.get('http://localhost:3000/dni')
+        const response = await api.get('https://api-vn-dola.onrender.com/dni')
         return response.data;
 
     } catch (error) {

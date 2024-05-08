@@ -3,7 +3,6 @@
 import Search from "@/app/ui/dashboard/search/search"
 import styles from "@/app/ui/dashboard/Alumnos/Alumnos.module.css"
 import Link from "next/link"
-import Image from "next/image"
 import Pagination from "@/app/ui/dashboard/pagination/pagination"
 import { useEffect, useState } from 'react';
 import { getAlumnos, deleteAlumno } from "@/app/api/alumnos"
@@ -38,12 +37,9 @@ const AlumnosPag = () => {
         }).then(async (result) => {
           if (result.isConfirmed) {
             try {
-              // Eliminar el alumno si se confirma la acción
               await deleteAlumno(id);
-              // Actualizar la lista de alumnos después de eliminar uno
               const updatedAlumnos = alumnos.filter((alumno) => alumno.id !== id);
               setAlumnos(updatedAlumnos);
-              // Mostrar SweetAlert2 de éxito
               Swal.fire({
                 title: "¡Eliminado!",
                 text: "Tu alumno ha sido eliminado.",
@@ -73,16 +69,16 @@ const AlumnosPag = () => {
             <table className={styles.table}>
                 <thead>
                     <tr>
-                        <th>Nombres</th>
-                        <th>Apellidos</th>
-                        <th>Teléfono</th>
-                        <th>N° de Documento</th>
-                        <th>Dirección</th>
-                        <th>Acción</th>
+                        <td>Nombres</td>
+                        <td>Apellidos</td>
+                        <td>Teléfono</td>
+                        <td>N° de Documento</td>
+                        <td>Dirección</td>
+                        <td>Acción</td>
                     </tr>
                 </thead>
                 <tbody>
-                    {alumnos.map((alumno, index) => (
+                {alumnos.map((alumno, index) => (
                         <tr key={index}>
                             <td>{alumno.nombres_alumno}</td>
                             <td>{alumno.apellidos_alumno}</td>
@@ -93,7 +89,7 @@ const AlumnosPag = () => {
                                 <div className={styles.buttons}>
                                     <Link href={`/dashboard/Alumnos/${alumno.alumno_id}`}>
                                         <button className={`${styles.button} ${styles.view}`}>
-                                            Ver
+                                            Actualizar
                                         </button>
                                     </Link>
                                 <button className={`${styles.button} ${styles.delete}`} onClick={() => handleDelete(alumno.alumno_id)}>
