@@ -1,6 +1,6 @@
 import MenuLink from './menuLink/menuLink';
 import styles from './sidebar.module.css';
-import { MdDashboard, MdSupervisedUserCircle, MdHail, MdLogout } from "react-icons/md";
+import { MdDashboard, MdSupervisedUserCircle, MdHail, MdLogout, MdAutoStories } from "react-icons/md";
 import Image from 'next/image';
 
 const menuItems = [
@@ -21,6 +21,11 @@ const menuItems = [
                 title: "Apoderados",
                 path: "dashboard/Apoderados",
                 icon: < MdHail />,
+            },
+            {
+                title: "Docentes",
+                path: "dashboard/Docentes",
+                icon: < MdAutoStories />,
             },
 
         ],

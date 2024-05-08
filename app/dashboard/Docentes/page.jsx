@@ -1,14 +1,14 @@
-import styles from "@/app/ui/dashboard/Apoderados/Apoderados.module.css"
+import styles from "@/app/ui/dashboard/Docentes/Docentes.module.css"
 import Pagination from "@/app/ui/dashboard/pagination/pagination"
 import Search from "@/app/ui/dashboard/search/search"
 import Image from "next/image"
 import Link from "next/link"
-const ApoderadosPage = () => {
+const DocentesPage = () => {
     return (
         <div className={styles.container}>
             <div className={styles.top}>
-                <Search placeholder="Buscar por apoderado..." />
-                <Link href="/dashboard/Apoderados/Crear">
+                <Search placeholder="Buscar por docente..." />
+                <Link href="/dashboard/Docentes/Crear">
                     <button className={styles.addButton}>Añadir Nuevo</button>
                 </Link>
             </div>
@@ -32,7 +32,7 @@ const ApoderadosPage = () => {
                         <td>202010604@urp.edu.pe</td>
                         <td>
                             <div className={styles.buttons}>
-                                <Link href="/dashboard/Apoderados/test">
+                                <Link href="/dashboard/Docentes/test">
                                     <button className={`${styles.button} ${styles.view}`}>
                                         Ver
                                     </button>
@@ -51,4 +51,4 @@ const ApoderadosPage = () => {
 }
 
 
-export default ApoderadosPage
+export default DocentesPage
